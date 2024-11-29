@@ -6,5 +6,6 @@ export default defineNuxtConfig({
   // Geliştirici araçlarını aç
   devtools: { enabled: true },
 
-  compatibilityDate: '2024-11-29'
+  compatibilityDate: '2024-11-29',
+  components: true,
 });

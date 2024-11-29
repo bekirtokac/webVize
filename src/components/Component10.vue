@@ -1,6 +1,6 @@
 <template>
   <div>
     <h2>Component 1</h2>
-    <p>Bu, birinci bileşen içerik alanıdır.</p>
+    <p>Bu, onuncu bileşen içerik alanıdır.</p>
   </div>
 </template>
