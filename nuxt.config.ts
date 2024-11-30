@@ -1,6 +1,6 @@
+// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  srcDir: 'src/', // Kaynak dosyalar src klasöründe
-  components: true, // Otomatik bileşen algılama
-  pages: false, // Yönlendirme sistemini devre dışı bırak
-  devtools: { enabled: true }, // Geliştirici araçları
-});
+  compatibilityDate: '2024-11-01',
+  pages: true,
+  devtools: { enabled: true }
+})
