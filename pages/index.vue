@@ -64,20 +64,27 @@ export default {
 
 <style scoped>
 .container {
-  display: flex; /* Navbar ve content yan yana */
-  height: 100vh; /* Tam ekran yüksekliği */
+  display: flex;
+  /* Navbar ve content yan yana */
+  height: 100vh;
+  /* Tam ekran yüksekliği */
 }
 
 .navbar {
-  width: 200px; /* Navbar genişliği */
-  background-color: #f4f4f4; /* Açık gri arka plan */
+  width: 200px;
+  /* Navbar genişliği */
+  background-color: #f4f4f4;
+  /* Açık gri arka plan */
   padding: 10px;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Hafif gölge */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  /* Hafif gölge */
 }
 
 .content {
-  flex: 1; /* Geri kalan alanı kaplar */
+  flex: 1;
+  /* Geri kalan alanı kaplar */
   padding: 20px;
-  background-color: #fff; /* Beyaz arka plan */
+  background-color: #fff;
+  /* Beyaz arka plan */
 }
 </style>
