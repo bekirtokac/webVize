@@ -21,25 +21,33 @@ export default {
 };
 </script>
 
-
 <style scoped>
 nav {
-  background: #f4f4f4;
-  padding: 10px;
   display: flex;
   flex-direction: column;
 }
 
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
 button {
-  margin: 5px 0;
+  width: 100%;
   padding: 10px;
   border: 1px solid #ddd;
-  background: #fff;
+  background-color: #fff;
   cursor: pointer;
   transition: background 0.3s;
 }
 
 button:hover {
-  background: #e0e0e0;
+  background-color: #007bff;
+  color: white;
 }
 </style>

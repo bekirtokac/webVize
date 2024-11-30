@@ -1,6 +1,6 @@
 <template>
   <div class="component">
-    <h2>Component 1</h2>
+    <h2>Component 10</h2>
     <p>Bu 10 componentin içeriği.</p>
   </div>
 </template>

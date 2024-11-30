@@ -1,9 +1,11 @@
 <template>
   <div class="container">
-    <!-- Navbar'a setActiveComponent prop'u gönderiyoruz -->
-    <Navbar :setActiveComponent="setActiveComponent" />
+    <!-- Sol tarafta Navbar -->
+    <div class="navbar">
+      <Navbar :setActiveComponent="setActiveComponent" />
+    </div>
 
-    <!-- Componentleri Dinamik Şekilde Göster -->
+    <!-- Sağ tarafta Componentler -->
     <div class="content">
       <Component1 v-show="activeComponent === 'Component1'" />
       <Component2 v-show="activeComponent === 'Component2'" />
@@ -46,3 +48,23 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.container {
+  display: flex; /* Navbar ve content yan yana */
+  height: 100vh; /* Tam ekran yüksekliği */
+}
+
+.navbar {
+  width: 200px; /* Navbar genişliği */
+  background-color: #f4f4f4; /* Açık gri arka plan */
+  padding: 10px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Hafif gölge */
+}
+
+.content {
+  flex: 1; /* Geri kalan alanı kaplar */
+  padding: 20px;
+  background-color: #fff; /* Beyaz arka plan */
+}
+</style>
