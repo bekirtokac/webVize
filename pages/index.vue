@@ -23,10 +23,17 @@
 
 <script>
 import Navbar from '@/components/Navbar.vue';
-import Component1 from '@/components/Component1.vue';
+import Component1 from '~/components/Component1.vue';
 import Component2 from '@/components/Component2.vue';
 import Component3 from '@/components/Component3.vue';
-// Diğer componentleri import edin...
+import Component4 from '~/components/Component4.vue';
+import Component5 from '~/components/Component5.vue';
+import Component6 from '~/components/Component6.vue';
+import Component7 from '~/components/Component7.vue';
+import Component8 from '~/components/Component8.vue';
+import Component9 from '~/components/Component9.vue';
+import Component10 from '~/components/Component10.vue';
+
 
 export default {
   components: {
@@ -34,7 +41,13 @@ export default {
     Component1,
     Component2,
     Component3,
-    // Diğer componentler...
+    Component4,
+    Component5,
+    Component6,
+    Component7,
+    Component8,
+    Component9,
+    Component10,
   },
   data() {
     return {
