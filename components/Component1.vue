@@ -10,9 +10,7 @@
       >
         <img :src="slide.image" :alt="slide.title" />
         <div class="content">
-          <h2>{{ slide.title }}</h2>
-          <p>{{ slide.description }}</p>
-          <button>{{ slide.buttonText }}</button>
+          <button class="content-button">{{ slide.buttonText }}</button>
         </div>
       </div>
 
@@ -40,22 +38,64 @@ export default {
       currentIndex: 0, // Aktif slide'ı tutar
       slides: [
         {
-          image: "https://via.placeholder.com/800x400?text=Slide+1",
-          title: "PS5 Pro",
-          description: "Şimdi satışta! Peşin fiyatına 6 taksit.",
+          image: "https://ffo3gv1cf3ir.merlincdn.net/SiteAssets/Bireysel/Banner/Kampanya/8640/banner.jpg",
           buttonText: "İncele",
         },
         {
-          image: "https://via.placeholder.com/800x400?text=Slide+2",
-          title: "Kampanya 2",
-          description: "Sınırlı süreli indirimler!",
-          buttonText: "Detaylar",
+          image: "https://ffo3gv1cf3ir.merlincdn.net/SiteAssets/Bireysel/Banner/Kampanya/8142/biogrenci_2011-pasaj-hero.jpg",
+          buttonText: "İncele",
         },
         {
-          image: "https://via.placeholder.com/800x400?text=Slide+3",
-          title: "Kampanya 3",
-          description: "Kaçırılmayacak fırsatlar!",
-          buttonText: "Hemen Al",
+          image: "https://ffo3gv1cf3ir.merlincdn.net/SiteAssets/Banner/Standart/Pasaj/v2-dyson-pasaj-hero.jpg?1732889888000",
+          buttonText: "İncele",
+        },
+        {
+          image: "https://ffo3gv1cf3ir.merlincdn.net/SiteAssets/Banner/Standart/Pasaj/PASAJDA-ONE-CIKANLAR-hero-banner-web.jpg?1732890523000",
+          buttonText: "İncele",
+        },
+        {
+          image: "https://ffo3gv1cf3ir.merlincdn.net/SiteAssets/Banner/Standart/Pasaj/teknolojik-urun-hero-banner-xweb.jpg?1732890182000",
+          buttonText: "İncele",
+        },
+        {
+          image: "https://ffo3gv1cf3ir.merlincdn.net/SiteAssets/Banner/Standart/Pasaj/r1-smarthome-pasaj-hero.jpg",
+          buttonText: "İncele",
+        },
+        {
+          image: "https://ffo3gv1cf3ir.merlincdn.net/SiteAssets/Banner/Standart/Pasaj/r2-ssport-122024pasaj-hero.jpg?1732863384000",
+          buttonText: "İncele",
+        },
+        {
+          image: "https://ffo3gv1cf3ir.merlincdn.net/SiteAssets/Banner/Standart/Pasaj/r4-fkok-pasaj-hero.jpg",
+          buttonText: "İncele",
+        },
+        {
+          image: "https://ffo3gv1cf3ir.merlincdn.net/SiteAssets/Banner/Standart/Pasaj/dt-iPhone16-pasaj-hero.jpg",
+          buttonText: "İncele",
+        },
+        {
+          image: "https://ffo3gv1cf3ir.merlincdn.net/SiteAssets/Banner/Standart/Pasaj/12taksit-may-pasaj-hero.jpg",
+          buttonText: "İncele",
+        },
+        {
+          image: "https://ffo3gv1cf3ir.merlincdn.net/SiteAssets/Banner/Standart/Pasaj/ak-logosuz-pasaj-hero.jpg",
+          buttonText: "İncele",
+        },
+        {
+          image: "https://ffo3gv1cf3ir.merlincdn.net/SiteAssets/Banner/Standart/Pasaj/Pasaj_iPhone-hero-banner-web.jpg",
+          buttonText: "İncele",
+        },
+        {
+          image: "https://ffo3gv1cf3ir.merlincdn.net/SiteAssets/Banner/Standart/Pasaj/FrsatlarKaps-Hero-Banner-web.jpg",
+          buttonText: "İncele",
+        },
+        {
+          image: "https://ffo3gv1cf3ir.merlincdn.net/SiteAssets/Banner/Standart/Pasaj/Herschel-hero-banner-web.jpg",
+          buttonText: "İncele",
+        },
+        {
+          image: "https://ffo3gv1cf3ir.merlincdn.net/SiteAssets/Banner/Standart/Pasaj/pasaj-heroxg.jpg",
+          buttonText: "İncele",
         },
       ],
     };
@@ -79,17 +119,25 @@ export default {
 .slider-container {
   position: relative;
   width: 100%;
-  max-width: 800px;
+  max-width: 1000px;
   margin: auto;
   overflow: hidden;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+.slider-container:hover .arrow {
+  display: flex; /* Slider üzerinde gezinildiğinde göster */
+}
+
 .slider {
   display: flex;
-  transition: transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out; /* Kayma efekti için geçiş animasyonu */
+  overflow: hidden;
+  height: 100%;
+  max-height: 500px;
   transform: translateX(calc(-100% * var(--current-index)));
+  overflow: hidden;
 }
 
 .slide {
@@ -107,9 +155,10 @@ export default {
 }
 
 .slide img {
-  width: 100%;
-  height: auto;
+  width: 1000px;
+  height: 400px;
   object-fit: cover;
+  object-position: center;
 }
 
 .content {
@@ -120,36 +169,45 @@ export default {
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.content button {
-  margin-top: 10px;
-  padding: 10px 20px;
+.content-button {
+  position: absolute;
+  margin-top: -100px; /* Yukarı taşımak için negatif değer kullanın */
+  margin-left: 66px; /* Sağa taşı */
+  padding: 15px 55px;
   background: #ffc107;
   border: none;
-  color: #000;
+  color: rgb(40, 85, 172);
   font-weight: bold;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 8px;
 }
 
 .arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(0, 0, 0, 0.7);
   border: none;
-  font-size: 24px;
-  padding: 10px;
+  font-size: 36px;
+  padding: 20px;
+  width: 60px; /* Buton genişliği */
+  height: 60px; /* Buton yüksekliği */
   cursor: pointer;
   border-radius: 50%;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  display: none; /* Varsayılan olarak gizle */
+  align-items: center;
+  justify-content: center;
 }
 
 .arrow.left {
   left: 10px;
+  background: white;
 }
 
 .arrow.right {
   right: 10px;
+  background: white;
 }
 
 .indicators {
@@ -160,12 +218,13 @@ export default {
 
 .indicators span {
   display: inline-block;
-  width: 10px;
-  height: 10px;
+  width: 30px;
+  height: 8px;
   margin: 0 5px;
   background: #ddd;
-  border-radius: 50%;
+  border-radius: 30%;
   cursor: pointer;
+  margin-bottom: 10px;
 }
 
 .indicators span.active {
