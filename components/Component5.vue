@@ -30,17 +30,29 @@ export default {
   data() {
     return {
       brands: [
-        { name: "Philips", logo: "https://via.placeholder.com/100x50?text=Philips" },
-        { name: "Sony", logo: "https://via.placeholder.com/100x50?text=Sony" },
-        { name: "Lenovo", logo: "https://via.placeholder.com/100x50?text=Lenovo" },
-        { name: "JBL", logo: "https://via.placeholder.com/100x50?text=JBL" },
-        { name: "Dyson", logo: "https://via.placeholder.com/100x50?text=Dyson" },
-        { name: "Casper", logo: "https://via.placeholder.com/100x50?text=Casper" },
-        { name: "Braun", logo: "https://via.placeholder.com/100x50?text=Braun" },
-        { name: "Realme", logo: "https://via.placeholder.com/100x50?text=Realme" },
-        { name: "Arzum", logo: "https://via.placeholder.com/100x50?text=Arzum" },
-        { name: "Samsung", logo: "https://via.placeholder.com/100x50?text=Samsung" },
-        { name: "Apple", logo: "https://via.placeholder.com/100x50?text=Apple" },
+        { name: "Braun", logo: "https://ffo3gv1cf3ir.merlincdn.net/SiteAssets/Cihaz/promo/braun-logo.png?1731801459000" },
+        { name: "Siemens", logo: "https://ffo3gv1cf3ir.merlincdn.net/SiteAssets/Cihaz/promo/siemens-logo.png?1731801459000" },
+        { name: "Lenovo", logo: "https://ffo3gv1cf3ir.merlincdn.net/SiteAssets/Cihaz/promo/lenovo-logo.png?1731801459000" },
+        { name: "JBL", logo: "https://ffo3gv1cf3ir.merlincdn.net/SiteAssets/Cihaz/promo/jbl-logo.png?1731801459000" },
+        { name: "Dyson", logo: "https://ffo3gv1cf3ir.merlincdn.net/SiteAssets/Cihaz/promo/dyson-logo.png?1731801459000" },
+        { name: "Casper", logo: "https://ffo3gv1cf3ir.merlincdn.net/SiteAssets/Cihaz/promo/casper-logo.png?1731801459000" },
+        { name: "Realme", logo: "https://ffo3gv1cf3ir.merlincdn.net/SiteAssets/Cihaz/promo/realme-logo.png?1731801459000" },
+        { name: "Arzum", logo: "https://ffo3gv1cf3ir.merlincdn.net/SiteAssets/Cihaz/promo/arzum-logo.png?1731801459000" },
+        { name: "Anker", logo: "https://ffo3gv1cf3ir.merlincdn.net/SiteAssets/Cihaz/promo/anker-logo.png?1731801459000" },
+        { name: "Omix", logo: "https://ffo3gv1cf3ir.merlincdn.net/SiteAssets/Cihaz/promo/omix-logo.png?1731801459000" },
+        { name: "Karaca", logo: "https://ffo3gv1cf3ir.merlincdn.net/SiteAssets/Cihaz/promo/karaca-logo.png?1731801459000" },
+        { name: "Bosch", logo: "https://ffo3gv1cf3ir.merlincdn.net/SiteAssets/Cihaz/promo/bosch-logo.png?1731801459000" },
+        { name: "Vestel", logo: "https://ffo3gv1cf3ir.merlincdn.net/SiteAssets/Cihaz/promo/vestel-logo.png?1731801459000" },
+        { name: "Lego", logo: "https://ffo3gv1cf3ir.merlincdn.net/SiteAssets/Cihaz/promo/lego-logo.png?1731801459000" },
+        { name: "Beko", logo: "https://ffo3gv1cf3ir.merlincdn.net/SiteAssets/Cihaz/promo/beko-logo.png?1731801459000" },
+        { name: "Sony", logo: "https://ffo3gv1cf3ir.merlincdn.net/SiteAssets/Cihaz/promo/sony-logo.png?1731801459000" },
+        { name: "Philips", logo: "https://ffo3gv1cf3ir.merlincdn.net/SiteAssets/Cihaz/promo/philips-logo.png?1731801459000" },
+        { name: "Huawei", logo: "https://ffo3gv1cf3ir.merlincdn.net/SiteAssets/Cihaz/promo/huawei-logo-2.png?1731801459000" },
+        { name: "Mi", logo: "https://ffo3gv1cf3ir.merlincdn.net/SiteAssets/Cihaz/promo/mi-logo.png?1731801459000" },
+        { name: "Samsung", logo: "https://ffo3gv1cf3ir.merlincdn.net/SiteAssets/Cihaz/promo/samsung-logo.png?1731801459000" },
+        { name: "Apple", logo: "https://ffo3gv1cf3ir.merlincdn.net/SiteAssets/Cihaz/promo/apple-logo.png?1731801459000" },
+        { name: "TCL", logo: "https://ffo3gv1cf3ir.merlincdn.net/SiteAssets/Cihaz/promo/tcl-logo.png?1731801459000" },
+        { name: "Karcher", logo: "https://ffo3gv1cf3ir.merlincdn.net/SiteAssets/Cihaz/promo/karcher-logo.png?1731801459000" },
       ],
       startIndex: 0, // Gösterilen markaların başlangıç indeksi
       visibleCount: 9, // Aynı anda gösterilecek marka sayısı
@@ -70,9 +82,11 @@ export default {
 </script>
 
 <style scoped>
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap");
+
 .popular-brands-container {
-  width: 80%; /* Genişliği ekranın %80'i olarak ayarlandı */
-  margin: 0 auto; /* Ortalamak için */
+  width: 80%;
+  margin: 0 auto;
   padding: 20px 0;
   background-color: #f9f9f9;
   position: relative;
@@ -86,13 +100,17 @@ export default {
 }
 
 .header h2 {
-  font-size: 24px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 34px;
   margin: 0;
 }
 
 .header .view-all {
-  font-size: 14px;
-  color: #007bff;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: rgb(40, 85, 172);
   text-decoration: none;
 }
 
@@ -101,26 +119,30 @@ export default {
 }
 
 .brands-slider {
-  display: flex;
+  padding-left: 0%;
+  padding-right: 0%;
   align-items: center;
   justify-content: center;
+  width: 98%;
+  display: flex;
   position: relative;
   overflow: hidden;
 }
 
 .brands-list {
+  width: 97%;
   display: flex;
   transition: transform 0.3s ease;
 }
 
 .brand-item {
   flex: 0 0 auto;
-  width: calc(100% / 9 - 10px); /* 9 marka için eşit genişlik */
+  width: calc(100% / 9 - 10px);
   height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 5px; /* Aralarında boşluk */
+  margin: 0 5px;
   border: 1px solid #ddd;
   border-radius: 10px;
   background: white;
@@ -139,11 +161,12 @@ export default {
   background: #fff;
   border: none;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 3%;
+  height: 50%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   font-size: 20px;
+  border: none;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -151,15 +174,10 @@ export default {
 }
 
 .arrow.left {
-  left: 100px; /* Sol oka daha yakın */
+  left: 1%;
 }
 
 .arrow.right {
-  right: 100px; /* Sağ oka daha yakın */
-}
-
-.arrow:hover {
-  background: #007bff;
-  color: white;
+  right: -1%;
 }
 </style>
