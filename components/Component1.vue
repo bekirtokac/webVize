@@ -43,7 +43,7 @@ export default {
         },
         {
           image: "https://ffo3gv1cf3ir.merlincdn.net/SiteAssets/Bireysel/Banner/Kampanya/8142/biogrenci_2011-pasaj-hero.jpg",
-          buttonText: "İncele",
+          buttonText: "Detaylar",
         },
         {
           image: "https://ffo3gv1cf3ir.merlincdn.net/SiteAssets/Banner/Standart/Pasaj/v2-dyson-pasaj-hero.jpg?1732889888000",
@@ -132,10 +132,9 @@ export default {
 
 .slider {
   display: flex;
-  transition: transform 0.5s ease-in-out; /* Kayma efekti için geçiş animasyonu */
-  overflow: hidden;
   height: 100%;
   max-height: 500px;
+  transition: transform 0.5s ease-in-out;
   transform: translateX(calc(-100% * var(--current-index)));
   overflow: hidden;
 }
@@ -222,7 +221,7 @@ export default {
   height: 8px;
   margin: 0 5px;
   background: #ddd;
-  border-radius: 30%;
+  border-radius: 25%;
   cursor: pointer;
   margin-bottom: 10px;
 }
