@@ -1,5 +1,14 @@
 <template>
   <div class="slider-container">
+    <!-- Blurred Background -->
+    <div
+      class="blurred-background"
+      :style="{
+        backgroundImage: `url(${slides[currentIndex].image})`,
+      }"
+    ></div>
+
+    <!-- Slider -->
     <div class="slider">
       <!-- Slider Items -->
       <div
@@ -119,12 +128,14 @@ export default {
 .slider-container {
   position: relative;
   width: 100%;
-  max-width: 1000px;
+  max-width: 19200px;
   margin: auto;
   overflow: hidden;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  z-index: 0;
 }
+
 
 .slider-container:hover .arrow {
   display: flex; /* Slider üzerinde gezinildiğinde göster */
@@ -133,7 +144,7 @@ export default {
 .slider {
   display: flex;
   height: 100%;
-  max-height: 500px;
+  max-height: 1500px;
   transition: transform 0.5s ease-in-out;
   transform: translateX(calc(-100% * var(--current-index)));
   overflow: hidden;
@@ -160,6 +171,20 @@ export default {
   object-position: center;
 }
 
+.blurred-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; /* Slider'ın 1.2 katı yüksekliği */
+  background-size: cover;
+  background-position: center;
+  filter: blur(20px); /* Blur efekti */
+  z-index: -1; /* Arka planda durması için */
+}
+
+
+
 .content {
   position: absolute;
   bottom: 20px;
@@ -171,7 +196,7 @@ export default {
 .content-button {
   position: absolute;
   margin-top: -100px; /* Yukarı taşımak için negatif değer kullanın */
-  margin-left: 66px; /* Sağa taşı */
+  margin-left: 490px; /* Sağa taşı */
   padding: 15px 55px;
   background: #ffc107;
   border: none;
@@ -200,12 +225,12 @@ export default {
 }
 
 .arrow.left {
-  left: 10px;
+  left: 21%;
   background: white;
 }
 
 .arrow.right {
-  right: 10px;
+  right: 21%;
   background: white;
 }
 
