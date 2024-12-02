@@ -43,7 +43,7 @@ export default {
         },
         {
           image: "https://ffo3gv1cf3ir.merlincdn.net/SiteAssets/Bireysel/Banner/Kampanya/8142/biogrenci_2011-pasaj-hero.jpg",
-          buttonText: "Detaylar",
+          buttonText: "İncele",
         },
         {
           image: "https://ffo3gv1cf3ir.merlincdn.net/SiteAssets/Banner/Standart/Pasaj/v2-dyson-pasaj-hero.jpg?1732889888000",
