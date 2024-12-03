@@ -88,7 +88,7 @@ export default {
   width: 80%;
   margin: 0 auto;
   padding: 20px 0;
-  background-color: #f9f9f9;
+  background-color: white;
   position: relative;
 }
 
