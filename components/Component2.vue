@@ -42,10 +42,15 @@
         <!-- Ürün Bilgileri -->
         <div class="product-info">
           <h3>{{ product.title }}</h3>
-          <p class="rating" v-if="index === 0 || index === 3">
-            <span v-for="n in 5" :key="n" :class="{'filled-star': n <= Math.round(product.rating)}">⭐</span>
-            <span>{{ product.rating }}</span>
-          </p>
+          <p class="rating">
+  <template v-if="index === 0 || index === 3">
+     <span v-for="n in 5" :key="n" :class="{'filled-star': n <= Math.round(product.rating)}">⭐</span>
+    <span>{{ product.rating }}</span>
+  </template>
+  <template v-else>
+    <span class="empty-placeholder">⠀</span>
+  </template>
+</p>
           <div class="tags">
             <span v-for="(tag, tagIndex) in product.tags" :key="tagIndex" class="tag" :style="getTagStyle(tag)">{{ tag }}</span>
           </div>
@@ -179,6 +184,7 @@ export default {
 }
 
 .product-list h2 {
+  
   padding-left: 15%;
   font-family: 'Poppins', sans-serif;
   font-size: 34px;
@@ -187,6 +193,7 @@ export default {
 }
 
 .products {
+  
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
@@ -195,6 +202,7 @@ export default {
 }
 
 .product-card {
+  
   width: 300px;
   height: 500px;
   background: white;
@@ -207,6 +215,7 @@ export default {
 }
 
 .product-card:hover {
+  
   border-color: #ffcc00;
 }
 
@@ -221,7 +230,7 @@ export default {
 
 .image-container img {
   width: 280px;
-  height: 180px;
+  height: 210px;
   object-fit: cover;
   user-select: none;
   pointer-events: none;
@@ -314,13 +323,13 @@ export default {
   font-size: 12px;
   font-weight: bold;
 }
-
+/**fotoğrafın altı */
 .product-info {
   padding: 10px;
   font-family: 'Poppins', sans-serif;
   font-size: 16px;
 }
-
+/**yazı */
 .product-info h3 {
   font-family: 'Poppins', sans-serif;
   font-size: 16px;
@@ -328,14 +337,20 @@ export default {
   font-weight: bold;
 }
 
-.product-info .rating {
+.rating {
   font-family: 'Poppins', sans-serif;
   font-size: 14px;
   color: #888;
   display: flex;
   align-items: center;
   gap: 5px;
+  min-height: 20px; /* Yıldızların yüksekliği kadar bir minimum yükseklik ekledik */
 }
+
+.rating .empty-placeholder {
+  visibility: hidden; /* Boşluğu oluşturuyor, ancak görünmez yapıyor */
+}
+
 
 .rating .filled-star {
   color: #FFD700;
