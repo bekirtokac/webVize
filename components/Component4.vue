@@ -25,6 +25,7 @@
         <h3>Giriş</h3>
         <p>Size özel ödeme avantajları ve size özel tekliflerden faydalanmak için Giriş Yap/Üye Ol seçeneği ile devam edebilirsiniz.</p>
         <button class="sign-in-action">Giriş Yap / Üye Ol</button>
+        <div class="o-p-header__dropdown__login__break o-p-header__dropdown__login__break--empty" style="width: 470px; height: 1px; background-color: rgb(222, 227, 237); margin-top: 20px;"></div>
         <a href="#" class="corporate-login">Kurumsal Yetkili Girişi</a>
       </div>
     </div>
@@ -118,10 +119,10 @@ export default {
   width: 100%;
   display: flex;
   flex-direction: row;
-  border: 1px solid #ddd;
+  border: 1px solid rgb(246, 245, 248);
   border-top: none;
   border-radius: 0 0 10px 10px;
-  background-color: #fff;
+  background-color: rgb(246, 245, 248);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 20px;
   justify-content: center;
