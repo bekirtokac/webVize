@@ -6,10 +6,10 @@
       :class="{ expanded: isExpanded }"
       @click.stop="toggleExpand"
     >
-      <i class="icon">👤</i>
-      <span>Giriş Yap</span>
-      <i class="arrow" v-if="!isExpanded">▼</i>
-      <i class="arrow" v-else>▲</i>
+      <span style="font-size: 30px; padding-right: 5px; padding-left: 10%;" class="material-symbols-outlined">account_circle</span>
+      <span style="padding-left: 5px; padding-right: 5px;">Giriş Yap</span>
+      <i class="arrow" v-if="!isExpanded" style="margin-left: 5px;">▼</i>
+      <i class="arrow" v-else style="margin-left: 5px;">▼</i>
     </div>
 
     <!-- Genişleyen Menü -->
@@ -17,16 +17,16 @@
       <div class="left">
         <img src="https://ffo3gv1cf3ir.merlincdn.net/pasaj_static_lib/passage-assets/common/images/content/login-image.png" alt="Promo" />
         <p class="welcome-message">
-          <span style="font-size: 24px;">Turkcell Pasaj’ın fırsatlarla dolu dünyasına hoş geldiniz!</span><br />
-          <span style="font-size: 14px;">Turkcell Pasaj’da fırsatlar bitmez! İhtiyacınız olan bir çok ürüne, güvenli ve esnek ödeme seçenekleri ile hem de kredi kartı limitinize takılmadan sahip olabilirsiniz. Favorilediğiniz ürünler için bilgilendirmelerden, siparişlerinizle ilgili tüm işlemlere ve daha da fazlasına kolaylıkla erişim sağlayabilirsiniz.</span>
+          <span style="font-size: 24px; font-weight:600;">Turkcell Pasaj’ın fırsatlarla dolu dünyasına hoş geldiniz!</span><br />
+          <span style="font-size: 14px;color: rgb(37, 51, 66);">Turkcell Pasaj’da fırsatlar bitmez! İhtiyacınız olan bir çok ürüne, güvenli ve esnek ödeme seçenekleri ile hem de kredi kartı limitinize takılmadan sahip olabilirsiniz. Favorilediğiniz ürünler için bilgilendirmelerden, siparişlerinizle ilgili tüm işlemlere ve daha da fazlasına kolaylıkla erişim sağlayabilirsiniz.</span>
         </p>
       </div>
       <div class="right">
         <h3>Giriş</h3>
-        <p>Size özel ödeme avantajları ve size özel tekliflerden faydalanmak için Giriş Yap/Üye Ol seçeneği ile devam edebilirsiniz.</p>
-        <button class="sign-in-action">Giriş Yap / Üye Ol</button>
+        <p style="font-weight: 400;">Size özel ödeme avantajları ve size özel tekliflerden faydalanmak için Giriş Yap/Üye Ol seçeneği ile devam edebilirsiniz.</p>
+        <button style="font-weight: 400;font-size: 24px;" class="sign-in-action">Giriş Yap / Üye Ol</button>
         <div class="o-p-header__dropdown__login__break o-p-header__dropdown__login__break--empty" style="width: 470px; height: 1px; background-color: rgb(222, 227, 237); margin-top: 20px;"></div>
-        <a href="#" class="corporate-login">Kurumsal Yetkili Girişi</a>
+        <a href="#" style="font-weight: 600;" class="corporate-login">Kurumsal Yetkili Girişi</a>
       </div>
     </div>
   </div>
@@ -59,14 +59,15 @@ export default {
 </script>
 
 <style scoped>
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=account_circle');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
 /* Genel Container */
 .sign-in-container {
   position: relative;
   width: 90%;
   margin: 20px;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', serif;
 }
 
 /* Dar Buton */
@@ -74,17 +75,17 @@ export default {
   margin-left: 75%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   width: 175px;
   height: 60px;
-  padding: 10px 15px;
+  padding: 10px 5px;
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', serif;
 }
 
 .sign-in-button.expanded {
@@ -93,22 +94,17 @@ export default {
   border-color: #ccc;
 }
 
-.sign-in-button i.icon {
-  margin-right: 10px;
-  font-size: 20px;
-  color: #333;
-}
-
 .sign-in-button span {
-  flex: 1;
   text-align: left;
   font-size: 16px;
-  color: #333;
+  color: #333;  
+  margin-left: 0;
 }
 
 .sign-in-button i.arrow {
   font-size: 12px;
   color: #666;
+  margin-left: 3px;
 }
 
 /* Genişleyen Menü */
@@ -127,16 +123,17 @@ export default {
   padding: 20px;
   justify-content: center;
   align-items: center;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', serif;
+  gap: 20%;
 }
 
 .expanded-menu .left {
-  flex: 1;
+  padding-left: 10%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  padding-right: 20px;
+  
 }
 
 .expanded-menu .left img {
@@ -155,20 +152,22 @@ export default {
 
 /*komple sağ taraf */
 .expanded-menu .right {
-  flex: 2;
-  padding-left: 33%;
+  padding-right: 5%;
   text-align: left;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', serif;
+  margin-bottom: 12%;
 }
 /*giris yazısı */
 .expanded-menu .right h3 {
-  font-size: 20px;
-  margin-bottom: 10px;
+  font-size: 32px;
+  margin-bottom: -5px;
   color: #333;
 }
 
 /*size özel yazısı */
 .expanded-menu .right p {
+  font-weight: 600;
+  font-style: normal;
   font-size: 14px;
   margin-bottom: 20px;
   padding-right: 30%;
@@ -183,7 +182,7 @@ export default {
   border-radius: 200px;
   font-size: 20px;
   font-weight: bold;
-  color: #000;
+  color: rgb(37, 51, 66);
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
@@ -205,5 +204,14 @@ export default {
 
 .expanded-menu .right .corporate-login:hover {
   text-decoration: underline;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24;
+  margin-right: 0;
 }
 </style>
