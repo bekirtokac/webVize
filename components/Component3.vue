@@ -6,7 +6,7 @@
       :class="{ expanded: isExpanded }"
       @click="expandSearchBar"
     >
-      <i class="icon">🔍</i>
+    <span class="material-icons-outlined icon">search</span>
       <input
         type="text"
         placeholder="Ürün, marka veya kategori ara"
@@ -17,17 +17,22 @@
 
     <!-- Genişletilmiş Menü -->
     <div class="expanded-menu" v-if="isExpanded">
-      <div class="categories">
-        <h3>Sana Özel Kategoriler</h3>
-        <div class="category-tags">
-          <span v-for="(category, index) in specialCategories" :key="index">
-            {{ category }}
-          </span>
-        </div>
+  <!-- Üst Bölüm -->
+  <div style="background-color: rgb(236, 240, 242);" class="expanded-menu-top">
+    <div class="categories">
+      <h3>Sana Özel Kategoriler</h3>
+      <div class="category-tags">
+        <span v-for="(category, index) in specialCategories" :key="index">
+          {{ category }}
+        </span>
       </div>
+    </div>
+  </div>
 
-      <div class="popular-searches">
-        <h3>Popüler Aramalar</h3>
+  <!-- Alt Bölüm -->
+  <div class="expanded-menu-bottom">
+    <div class="popular-searches">
+      <h3>Popüler Aramalar</h3>
         <div class="slider-container">
           <div class="slider" :style="sliderStyle">
             <span
@@ -42,6 +47,7 @@
             </span>
           </div>
         </div>
+      </div>
         <button
           class="slider-btn left"
           @click="slideLeft"
@@ -209,6 +215,7 @@ export default {
 
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons+Outlined");
 
 .search-container {
   position: relative;
@@ -226,17 +233,37 @@ export default {
   padding: 10px 15px;
   border: 1px solid #ddd;
   border-radius: 10px;
-  background-color: #f7f9fc;
+  background-color:rgb(236, 240, 242);
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 }
 
 .show-all {
-  text-decoration: none;
+  display: inline-block; /* Padding'in düzgün çalışması için */
+  padding: 10px 20px; /* Üst-alt: 10px, Sağ-sol: 20px */
+  text-decoration: none; /* Alt çizgiyi kaldırmak için */
+  color: rgb(40, 85, 172);
 }
 
 .show-all-wrapper {
-  margin-top: 20px;
+  margin-top: 0px;
+  background-color: white; /* Beyaz arka plan */
+  padding: 21px 0; /* Biraz iç boşluk eklemek için */
+  align-items: center;
+  justify-content: center;
+}
+
+.show-all-wrapper .show-all {
+  text-decoration: none;
+  color: rgb(40, 85, 172);
+  transition: background-color 0.3s ease; /* Hover geçiş animasyonu */
+}
+
+.show-all-wrapper .show-all:hover {
+  background-color: rgb(236, 240, 242); /* Hover sırasında arka plan rengi */
+  border-radius: 5px; /* İsteğe bağlı: köşeleri yuvarlatmak için */
+  padding: 10px 20px; /* Hover etkisinde daha belirgin boşluk için */
+  width: 94%;
 }
 
 .result-image {
@@ -250,6 +277,14 @@ export default {
   display: flex;
   align-items: center;
   gap: 10px;
+  transition: background-color 0.3s ease; /* Hover geçiş animasyonu */
+  height: 75px;
+}
+
+.image-text-container:hover {
+  background-color: rgb(236, 240, 242); /* Hover sırasında arka plan rengi */
+  cursor: pointer; /* Hover sırasında imleç tipi */
+  height: 75px;
 }
 
 .result-details {
@@ -274,13 +309,13 @@ export default {
 }
 
 .search-bar.expanded {
-  background-color: rgb(236, 240, 242);
+  background-color: rgb(236, 240, 242); /* Sarı renk ile değiştirildi */
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
-  border-color: #ccc;
+  border-color: rgb(236, 240, 242); /* Sarı renk ile uyumlu hale getirildi */
 }
 
-.search-bar i.icon {
+.search-bar .material-icons-outlined.icon {
   background-color: rgb(236, 240, 242);
   margin-right: 10px;
   color: #888;
@@ -293,17 +328,29 @@ export default {
   background: transparent;
   outline: none;
   font-size: 16px;
-  color: #666;
+  color: rgb(142, 159, 173); 
 }
 
 .expanded-menu {  
   border: 1px solid #ddd;
   border-top: none;
   border-radius: 0 0 10px 10px;
-  background-color: #fff;
+  background-color: rgb(236, 240, 242); /* Sarı renk */
   flex-grow: 1;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+.expanded-menu-bottom {
+  background-color: white; /* Beyaz arka plan */
+}
+
+.popular-searches {
+  padding-top: 3%;
+  padding-left: 2%;
+  margin-bottom: 20px;
+  background-color: white; /* Beyaz arka plan */
+}
+
 
 .categories,
 .popular-searches {
@@ -315,9 +362,9 @@ export default {
 .popular-searches h3 {
   padding-left: 1%;
   margin-bottom: 10px;
-  font-size: 14px;
-  color: #333;
-  font-weight: lighter;
+  font-size: 12px;
+  color: rgb(142, 159, 173);
+  font-weight: 600;
 }
 
 .category-tags span,
@@ -337,12 +384,32 @@ export default {
 
 .category-tags span:hover,
 .slider-item.active {
-  background-color: #007bff;
+  background-color: rgb(40, 85, 172);
   color: white;
 }
 
+.category-tags span {
+  display: inline-block;
+  margin: 5px;
+  padding: 10px 15px;
+  background-color: white; /* Arka planı beyaz yap */
+  border: 1px solid #ddd; /* İsteğe bağlı, kenarlık eklemek için */
+  border-radius: 25px;
+  font-size: 14px;
+  color: #333; /* Yazı rengi */
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.3s;
+  white-space: nowrap;
+}
+
+.category-tags span:hover {
+  background-color: rgb(40, 85, 172); /* Hover rengi (isteğe bağlı) */
+  color: white;
+}
 .price {
-  font-size: 16px;
+  padding-left: 20px;
+  font-size: 22px;
   color: rgb(95, 107, 118);
   font-weight: bold;
   display: flex;
@@ -371,7 +438,7 @@ export default {
 
 .slider-btn {
   position: absolute;
-  top: 54%;
+  top: 61%;
   transform: translateY(-50%);
   background-color: rgb(236, 240, 242);
   border: 1px solid #ddd;
