@@ -24,8 +24,22 @@
       </div>
 
       <!-- Arrows -->
-      <button class="arrow left" @click="prevSlide">‹</button>
-      <button class="arrow right" @click="nextSlide">›</button>
+<button
+  class="arrow left"
+  :disabled="currentIndex === 0"
+  :class="{ disabled: currentIndex === 0 }"
+  @click="prevSlide"
+>
+  ‹
+</button>
+<button
+  class="arrow right"
+  :disabled="currentIndex === slides.length - 1"
+  :class="{ disabled: currentIndex === slides.length - 1 }"
+  @click="nextSlide"
+>
+  ›
+</button>
     </div>
 
     <!-- Indicators -->
@@ -111,11 +125,14 @@ export default {
   },
   methods: {
     nextSlide() {
-      this.currentIndex = (this.currentIndex + 1) % this.slides.length;
+      if (this.currentIndex < this.slides.length - 1) {
+        this.currentIndex = this.currentIndex + 1;
+      }
     },
     prevSlide() {
-      this.currentIndex =
-        (this.currentIndex - 1 + this.slides.length) % this.slides.length;
+      if (this.currentIndex > 0) {
+        this.currentIndex = this.currentIndex - 1;
+      }
     },
     goToSlide(index) {
       this.currentIndex = index;
@@ -232,6 +249,11 @@ export default {
 .arrow.right {
   right: 21%;
   background: white;
+}
+
+.arrow:disabled,
+.arrow.disabled {
+  opacity: 0.5; /* Şeffaflık ile pasiflik belirtiliyor */
 }
 
 .indicators {
