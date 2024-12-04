@@ -1,26 +1,37 @@
 <template>
   <div class="special-deals-container">
-    <h2>Kaçırılmayacak Fırsatlar</h2>
+    <h2 class="header">Kaçırılmayacak Fırsatlar</h2>
     <div class="slider">
       <!-- Sol Ok -->
-      <button class="arrow left" @click="prevSlide">‹</button>
+      <button
+        class="arrow left"
+        @click="prevSlide"
+        :class="{ disabled: currentIndex === 0 }"
+      >
+        ‹
+      </button>
 
       <!-- Slider Kartları -->
       <div class="slides">
-        <div class="slide" v-for="(deal, index) in visibleDeals" :key="index"
-          :style="{ backgroundImage: `url(${deal.background})` }">
-          <div class="slide-content">
-            <h3>{{ deal.title }}</h3>
-            <p>{{ deal.description }}</p>
-          </div>
+        <div class="slide" v-for="(deal, index) in visibleDeals" :key="index">
+          <!-- Görsel -->
+          <img :src="deal.image" :alt="deal.title" class="slide-image" />
+          <!-- İçerik -->
         </div>
       </div>
 
       <!-- Sağ Ok -->
-      <button class="arrow right" @click="nextSlide">›</button>
+      <button
+        class="arrow right"
+        @click="nextSlide"
+        :class="{ disabled: currentIndex + visibleCount >= deals.length }"
+      >
+        ›
+      </button>
     </div>
   </div>
 </template>
+
 
 <script>
 export default {
@@ -28,33 +39,48 @@ export default {
     return {
       deals: [
         {
-          title: "400 TL Bonus fırsatı!",
-          description: "20.000 TL üzeri alışverişlerinizde geçerli fırsatı kaçırmayın.",
-          background: "https://via.placeholder.com/300x500?text=Bonus+Fırsatı",
+          image:
+            "https://ffo3gv1cf3ir.merlincdn.net/SiteAssets/Cihaz/pasaj/firsat/web/bonusbf2611-KF.jpg", // Görsel yolu
         },
         {
-          title: "QNB GO Kredi Kartı",
-          description: "İlk işlemine 500 TL ParaPuan kazanın!",
-          background: "https://via.placeholder.com/300x500?text=QNB+GO",
+          image:
+            "https://ffo3gv1cf3ir.merlincdn.net/SiteAssets/Cihaz/pasaj/firsat/web/qnb-kasim-KF.webp", // Görsel yolu
         },
         {
-          title: "Maximum Kart’a başvur",
-          description: "Ayda 20.000 TL’yi aşan MaxiPuan kazan!",
-          background: "https://via.placeholder.com/300x500?text=Maximum+Kart",
+          image:
+            "https://ffo3gv1cf3ir.merlincdn.net/SiteAssets/Cihaz/pasaj/firsat/web/isbnk20k-KF.jpg", // Görsel yolu
         },
         {
-          title: "HangiKredi Faizsiz Finans",
-          description: "0% faizli 45.000 TL nakit avantajı ile ihtiyacını erteleme!",
-          background: "https://via.placeholder.com/300x500?text=HangiKredi",
+          image:
+            "https://ffo3gv1cf3ir.merlincdn.net/SiteAssets/Cihaz/pasaj/firsat/web/hk45k-KF.jpg", // Görsel yolu
+        },
+        {
+          image:
+            "https://ffo3gv1cf3ir.merlincdn.net/SiteAssets/Cihaz/pasaj/firsat/web/r1-pacunku-kkff.jpg", // Görsel yolu
+        },
+        {
+          image:
+            "https://ffo3gv1cf3ir.merlincdn.net/SiteAssets/Cihaz/pasaj/firsat/web/fr1-go4-KFx.jpg", // Görsel yolu
+        },
+        {
+          image:
+            "https://ffo3gv1cf3ir.merlincdn.net/SiteAssets/Cihaz/pasaj/firsat/web/Herschel-xkfxf.jpg", // Görsel yolu
+        },
+        {
+          image:
+            "https://ffo3gv1cf3ir.merlincdn.net/SiteAssets/Cihaz/pasaj/firsat/web/r1-tvpluspro-KF.jpg", // Görsel yolu
         },
       ],
-      currentIndex: 0, // Mevcut slide indeksi
-      visibleCount: 3, // Aynı anda görünen kart sayısı
+      currentIndex: 0, // Şu anda gösterilen slide
+      visibleCount: 4, // Aynı anda kaç slide gösterileceği
     };
   },
   computed: {
     visibleDeals() {
-      return this.deals.slice(this.currentIndex, this.currentIndex + this.visibleCount);
+      return this.deals.slice(
+        this.currentIndex,
+        this.currentIndex + this.visibleCount
+      );
     },
   },
   methods: {
@@ -71,8 +97,16 @@ export default {
   },
 };
 </script>
-
 <style scoped>
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap");
+
+.header {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 34px;
+  margin: 0;
+}
+
 .special-deals-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -99,33 +133,42 @@ export default {
 }
 
 .slide {
-  flex: 1 1 calc(25% - 20px);
-  /* Her kart eşit genişlikte */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  flex: 1 1 calc(33% - 20px);
+  /* 3 slide yan yana */
   border-radius: 10px;
-  color: white;
-  padding: 20px;
+  background: #f4f4f4;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  min-height: 300px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  align-items: center;
+}
+
+.slide img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+}
+
+.slide-content {
+  padding: 15px;
+  text-align: center;
 }
 
 .slide-content h3 {
   font-size: 18px;
   margin-bottom: 10px;
+  color: #007bff;
 }
 
 .slide-content p {
   font-size: 14px;
+  color: #555;
 }
 
 .arrow {
   position: absolute;
-  top: 50%;
+  top: 40%;
   transform: translateY(-50%);
   background: white;
   border: none;
@@ -140,6 +183,16 @@ export default {
   z-index: 1;
   font-size: 20px;
   color: #333;
+  transition: opacity 0.3s ease, cursor 0.3s ease;
+}
+
+.arrow.disabled {
+  opacity: 0.4;
+  /* Soluk hale getir */
+  pointer-events: none;
+  /* Tıklanamaz yap */
+  cursor: not-allowed;
+  /* İşaretçi stilini değiştir */
 }
 
 .arrow.left {
@@ -148,10 +201,5 @@ export default {
 
 .arrow.right {
   right: -20px;
-}
-
-.arrow:hover {
-  background: #007bff;
-  color: white;
 }
 </style>
