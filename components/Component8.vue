@@ -1,56 +1,64 @@
 <template>
   <div class="campaigns-container">
-    <h2>Kampanyalar</h2>
-    <div class="campaigns-grid">
-      <!-- Kampanya Kartları -->
-      <div class="campaign-card" v-for="(campaign, index) in campaigns" :key="index"
-        :style="{ backgroundImage: `url(${campaign.background})` }">
-        <div class="campaign-content">
-          <h3>{{ campaign.title }}</h3>
-          <p>{{ campaign.description }}</p>
-          <span>{{ campaign.discount }}</span>
+    <h2 class="header">Kampanyalar</h2>
+    <div class="campaigns-layout">
+      <!-- Sol Bölüm: Mutfak ve Ev Ürünleri -->
+      <div class="left-column">
+        <div class="campaign-card" v-for="(campaign, index) in leftColumnCampaigns" :key="index">
+          <img :src="campaign.background" :alt="campaign.title" class="campaign-image" />
+          <div class="campaign-content">
+            <h3>{{ campaign.title }}</h3>
+            <p>{{ campaign.description }}</p>
+            <span>{{ campaign.discount }}</span>
+          </div>
         </div>
-        <div class="campaign-image">
-          <img :src="campaign.image" :alt="campaign.title" />
+      </div>
+
+      <!-- Sağ Bölüm: Oyun Ürünleri -->
+      <div class="right-column">
+        <img :src="rightColumnCampaign.background" :alt="rightColumnCampaign.title" class="campaign-image" />
+        <div class="campaign-content">
+          <h3>{{ rightColumnCampaign.title }}</h3>
+          <p>{{ rightColumnCampaign.description }}</p>
+          <span>{{ rightColumnCampaign.discount }}</span>
         </div>
       </div>
     </div>
   </div>
 </template>
 
+
 <script>
 export default {
   data() {
     return {
-      campaigns: [
+      leftColumnCampaigns: [
         {
-          title: "Mutfak ürünlerinde Kasım fırsatları",
-          description: "İlk alışverişe özel 250 TL indirim çeki",
-          discount: "Peşin fiyatına 6 taksit",
-          background: "https://via.placeholder.com/800x400?text=Mutfak",
-          image: "https://via.placeholder.com/200x200?text=Mutfak+Ürünleri",
+          background: "https://ffo3gv1cf3ir.merlincdn.net/SiteAssets/Cihaz/pasaj/kampanya/yatay/36aytaksit-kampanyalar-yatay-fwebx.jpg?1731801459000",
         },
         {
-          title: "Ev ürünlerinde Kasım fırsatları",
-          description: "İlk alışverişe özel 250 TL indirim çeki",
-          discount: "Peşin fiyatına 6 taksit",
-          background: "https://via.placeholder.com/800x400?text=Ev+Ürünleri",
-          image: "https://via.placeholder.com/200x200?text=Ev+Ürünleri",
-        },
-        {
-          title: "Oyun ürünlerinde Kasım fırsatları",
-          description: "İlk alışverişe özel 250 TL indirim çeki",
-          discount: "Peşin fiyatına 6 taksit",
-          background: "https://via.placeholder.com/800x400?text=Oyun+Ürünleri",
-          image: "https://via.placeholder.com/200x200?text=Oyun+Ürünleri",
+          background: "https://ffo3gv1cf3ir.merlincdn.net/SiteAssets/Cihaz/pasaj/kampanya/yatay/r1-pac-jbl--yatay-web.jpg?1731801459000",
         },
       ],
+      rightColumnCampaign: {
+
+        background: "https://ffo3gv1cf3ir.merlincdn.net/SiteAssets/Cihaz/pasaj/kampanya/dikey/hk45k-kampanyalar-dikey.jpg?1731801459000",
+      },
     };
   },
 };
 </script>
 
 <style scoped>
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap");
+
+.header {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 50px;
+  margin: 0;
+}
+
 .campaigns-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -63,60 +71,81 @@ export default {
   color: #333;
 }
 
-.campaigns-grid {
+.campaigns-layout {
   display: flex;
-  flex-wrap: wrap;
   gap: 20px;
-  justify-content: space-between;
 }
 
-.campaign-card {
-  flex: 1 1 calc(50% - 10px);
-  /* İki kart yatayda */
-  background-size: cover;
-  background-position: center;
-  border-radius: 10px;
-  color: white;
-  padding: 20px;
+/* Sol Bölüm */
+.left-column {
+  flex: 1;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
-  min-height: 200px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  flex-direction: column;
+  gap: 20px;
 }
 
-.campaign-card:nth-child(3) {
-  flex: 1 1 100%;
-  /* Üçüncü kart tam genişlik */
-  min-height: 300px;
+.left-column .campaign-card {
+  width: 100%;
+  height: 280px;
+  /* Sabit yükseklik */
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.left-column .campaign-image {
+  width: 780px;
+  height: 280px;
+  object-fit: cover;
+}
+
+/* Sağ Bölüm */
+.right-column {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.right-column .campaign-card {
+  width: 100%;
+  height: 280px;
+  /* Sabit yükseklik */
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.right-column .campaign-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* İçerik */
+.campaign-content {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
 }
 
 .campaign-content h3 {
-  font-size: 20px;
+  font-size: 18px;
   margin-bottom: 10px;
 }
 
 .campaign-content p {
-  font-size: 16px;
-  margin-bottom: 5px;
+  font-size: 14px;
+  margin-bottom: 10px;
 }
 
 .campaign-content span {
   font-size: 14px;
   font-weight: bold;
   color: #ffc107;
-}
-
-.campaign-image {
-  max-width: 150px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.campaign-image img {
-  max-width: 100%;
-  border-radius: 10px;
 }
 </style>
